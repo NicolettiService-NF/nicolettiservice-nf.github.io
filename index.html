@@ -184,6 +184,63 @@
         font-size: 16px;
       }
     }
+
+    .footer{
+  background:#8fa6b3;
+  padding:40px 20px 10px;
+  color:#0b1f2a;
+}
+
+.footer-container{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:40px;
+  max-width:1200px;
+  margin:auto;
+}
+
+.footer-box{
+  display:flex;
+  align-items:flex-start;
+  gap:15px;
+  flex:1;
+}
+
+.footer-box h3{
+  margin:0 0 10px;
+}
+
+.footer-box p{
+  margin:3px 0;
+  font-size:14px;
+}
+
+/* icone */
+.icon{
+  background:linear-gradient(145deg,#1e3c5a,#0d2a45);
+  color:white;
+  padding:12px;
+  border-radius:8px;
+  font-size:20px;
+}
+
+.icon.big{
+  font-size:28px;
+  padding:18px;
+}
+
+.center-icon{
+  justify-content:center;
+  align-items:center;
+}
+
+/* copyright */
+.footer-bottom{
+  text-align:right;
+  margin-top:30px;
+  font-size:13px;
+}
   </style>
 </head>
 
@@ -241,4 +298,40 @@
   </section>
 
 </body>
+  <footer class="footer">
+  <div class="footer-container">
+
+    <!-- COLONNA 1 -->
+    <div class="footer-box">
+      <div class="icon">👥</div>
+      <div class="box-content">
+        <h3>Nicoletti Service s.n.c</h3>
+        <p>Partita IVA: 06585840728</p>
+        <p>Codice Fiscale: 06585840728</p>
+        <p>Vat Europeo: IT06585840728</p>
+      </div>
+    </div>
+
+    <!-- COLONNA 2 (ICONA CENTRALE) -->
+    <div class="footer-box center-icon">
+      <div class="icon big">📍</div>
+    </div>
+
+    <!-- COLONNA 3 -->
+    <div class="footer-box">
+      <h3>Contatti</h3>
+      <p>📍 Via dei Marmisti 5</p>
+      <p>Zona Industriale SS96, Modugno (BA)</p>
+      <p>📧 info@nicolettiservice.it</p>
+      <p>📞 +39 XXX XXX XXXX (Nicola)</p>
+      <p>📞 +39 XXX XXX XXXX (Francesco)</p>
+    </div>
+
+  </div>
+
+  <!-- COPYRIGHT -->
+  <div class="footer-bottom">
+    © 2026 Nicoletti Service snc – Tutti i diritti riservati
+  </div>
+</footer>
 </html>
