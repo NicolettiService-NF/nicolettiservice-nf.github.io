@@ -1,80 +1,244 @@
 <!DOCTYPE html>
-<html lang="it">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Nicoletti Service</title>
+  <base target="_top">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.6;
-      color: #1a1a1a;
-      background-color: #ffffff;
-    }
-
-    header {
-      padding: 60px 20px;
+      font-family: Arial, sans-serif;
       background: #f4f6f9;
-      text-align: center;
+      color: #0b1b33;
     }
 
-    header h1 {
-      margin-bottom: 10px;
-      color: #1976d2;
+    /* HEADER */
+    .navbar {
+      height: 62px;
+      background: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 22px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
-    section {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      color: #1565c0;
+      line-height: 1;
+    }
+
+    .logo span {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #555;
+      margin-left: 15px;
+      flex: 1;
+    }
+
+    .nav a {
+      margin-left: 18px;
+      text-decoration: none;
+      color: #222;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    /* FRAME */
+    .frame {
+      min-height: 260px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 35px 40px;
+      background-size: cover;
+      background-position: center right;
+      overflow: hidden;
+    }
+
+    .frame::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(255,255,255,0.95) 0%,
+        rgba(255,255,255,0.82) 35%,
+        rgba(255,255,255,0.35) 70%,
+        rgba(255,255,255,0.10) 100%
+      );
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      max-width: 620px;
+    }
+
+    .small-title {
+      color: #1565c0;
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    h1, h2 {
+      margin: 0;
+      font-size: 42px;
+      line-height: 1.05;
+      text-transform: uppercase;
+    }
+
+    h1 span,
+    h2 span {
+      color: #2f80d9;
+    }
+
+    .description {
+      margin-top: 18px;
+      font-size: 18px;
+      line-height: 1.6;
+      font-weight: 500;
     }
 
     .btn {
       display: inline-block;
-      margin-top: 20px;
-      padding: 14px 26px;
-      background: #1976d2;
+      margin-top: 22px;
+      padding: 12px 22px;
+      background: #1565c0;
       color: white;
-      text-decoration: none;
       border-radius: 6px;
+      text-decoration: none;
       font-weight: bold;
+      font-size: 14px;
     }
 
-    footer {
-      padding: 20px;
-      background: #f0f0f0;
-      text-align: center;
-      font-size: 14px;
-      color: #555;
+    .btn:hover {
+      background: #0d47a1;
+    }
+
+    /* IMMAGINI DI SFONDO */
+    .stoccaggio {
+      background-image: url("LINK_IMMAGINE_1");
+    }
+
+    .attrezzature {
+      background-image: url("LINK_IMMAGINE_2");
+    }
+
+    .medicale {
+      background-image: url("LINK_IMMAGINE_3");
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .navbar {
+        height: auto;
+        padding: 12px;
+        flex-wrap: wrap;
+      }
+
+      .subtitle {
+        display: none;
+      }
+
+      .nav {
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .nav a {
+        margin-left: 0;
+        margin-right: 15px;
+      }
+
+      .frame {
+        min-height: 280px;
+        padding: 28px 20px;
+        background-position: center;
+      }
+
+      .frame::before {
+        background: rgba(255,255,255,0.82);
+      }
+
+      h1, h2 {
+        font-size: 31px;
+      }
+
+      .description {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-<header>
-  <h1>Nicoletti Service</h1>
-  <p>Specialisti in refrigerazione medicale e conservazione dei farmaci</p>
+  <header class="navbar">
+    <div class="logo">
+      NICOLETTI
+      <span>SERVICE</span>
+    </div>
 
-  <a class="btn" href="https://script.google.com/macros/s/AKfycbxNvrySxWKuz2lb1u1bBo8zr_9aclhRv3T2bWzsfU_fn5f34Zy6UGeRX0rJPtlpXKVoeA/exec">
-    Accedi all'assistenza
-  </a>
-</header>
+    <div class="subtitle">di Nicola e Francesco Nicoletti</div>
 
-<section>
-  <h2>I nostri servizi</h2>
-  <ul>
-    <li>Refrigerazione medicale</li>
-    <li>Conservazione e monitoraggio dei farmaci</li>
-    <li>Assistenza tecnica specializzata</li>
-  </ul>
-</section>
+    <nav class="nav">
+      <a href="index.html">Home page</a>
+      <a href="#">Altro</a>
+    </nav>
+  </header>
 
-<footer>
-  © 2026 Nicoletti Service – Tutti i diritti riservati
-</footer>
+  <!-- FRAME 1 -->
+  <section class="frame stoccaggio">
+    <div class="content">
+      <div class="small-title">SOLUZIONI DI STOCCAGGIO per</div>
+      <h1>GESTIONE EFFICIENTE</h1>
+      <div class="description">
+        E sicura delle attrezzature
+      </div>
+      <a class="btn" href="stoccaggio.html">Scopri di più</a>
+    </div>
+  </section>
+
+  <!-- FRAME 2 -->
+  <section class="frame attrezzature">
+    <div class="content">
+      <div class="small-title">SERVIZIO per le</div>
+      <h2><span>ATTREZZATURE</span> REFRIGERANTI</h2>
+      <div class="description">
+        Dalla gestione al ricondizionamento,<br>
+        fino alla pulizia professionale.
+      </div>
+      <a class="btn" href="attrezzature.html">Vai ai servizi</a>
+    </div>
+  </section>
+
+  <!-- FRAME 3 -->
+  <section class="frame medicale">
+    <div class="content">
+      <div class="small-title">SPECIALISTI NELLA</div>
+      <h2>REFRIGERAZIONE <span>MEDICALE</span></h2>
+      <div class="description">
+        E nella conservazione dei farmaci.
+      </div>
+      <a class="btn" href="medicale.html">Scopri il settore</a>
+    </div>
+  </section>
 
 </body>
 </html>
