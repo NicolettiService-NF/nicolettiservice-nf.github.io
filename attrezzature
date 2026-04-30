@@ -519,7 +519,7 @@
     </p>
 
     <div class="buttons">
-      <a class="btn primary" href="#servizi">Scopri i servizi</a>
+    <!--  <a class="btn primary" href="#servizi">Scopri i servizi</a>-->
       <a class="btn secondary" href="#contatti">Richiedi informazioni</a>
     </div>
   </div>
