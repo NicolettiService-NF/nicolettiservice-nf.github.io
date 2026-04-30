@@ -5,6 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
+    :root {
+      --blue: #0b63ce;
+      --blue-light: #4aa3ff;
+      --dark: #071d3a;
+      --text: #102033;
+      --muted: #64748b;
+      --bg: #f4f7fb;
+      --white: #ffffff;
+    }
+
     * {
       box-sizing: border-box;
     }
@@ -12,144 +22,313 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f4f6f9;
-      color: #0b1b33;
+      background: var(--bg);
+      color: var(--text);
     }
 
-    /* HEADER */
     .navbar {
-      height: 62px;
-      background: white;
+      background: rgba(255,255,255,0.96);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0 22px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      padding: 14px 42px;
+      box-shadow: 0 6px 20px rgba(0,0,0,.08);
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 50;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
     }
 
     .logo {
-      font-size: 22px;
-      font-weight: 800;
-      color: #1565c0;
-      line-height: 1;
+      color: var(--blue);
+      font-size: 24px;
+      font-weight: 900;
+      line-height: .9;
     }
 
     .logo span {
       display: block;
       font-size: 11px;
-      letter-spacing: 2px;
+      letter-spacing: 3px;
     }
 
     .subtitle {
+      border-left: 1px solid #dbe4ef;
+      padding-left: 16px;
+      color: var(--muted);
       font-size: 14px;
-      color: #555;
-      margin-left: 15px;
-      flex: 1;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
     }
 
     .nav a {
-      margin-left: 18px;
       text-decoration: none;
-      color: #222;
-      font-weight: bold;
+      color: var(--dark);
+      font-weight: 700;
       font-size: 14px;
     }
 
-    /* FRAME */
-    .frame {
-      min-height: 260px;
-      position: relative;
+    .nav .cta {
+      background: var(--blue);
+      color: white;
+      padding: 11px 17px;
+      border-radius: 8px;
+    }
+
+    .hero {
+      min-height: 560px;
       display: flex;
       align-items: center;
-      padding: 35px 40px;
+      padding: 70px 56px;
+      color: white;
+      background-image:
+        linear-gradient(90deg, rgba(7,29,58,.92) 0%, rgba(7,29,58,.78) 40%, rgba(7,29,58,.20) 75%),
+        url("images/Mag2.png");
       background-size: cover;
       background-position: center right;
-      overflow: hidden;
     }
 
-    .frame::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        90deg,
-        rgba(255,255,255,0.95) 0%,
-        rgba(255,255,255,0.82) 35%,
-        rgba(255,255,255,0.35) 70%,
-        rgba(255,255,255,0.10) 100%
-      );
+    .hero-content {
+      max-width: 720px;
     }
 
-    .content {
-      position: relative;
-      z-index: 2;
-      max-width: 620px;
+    .eyebrow {
+      color: var(--blue-light);
+      font-size: 16px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      margin-bottom: 16px;
     }
 
-    .small-title {
-      color: #1565c0;
-      font-size: 18px;
-      font-weight: 500;
-      margin-bottom: 8px;
-    }
-
-    h1, h2 {
+    .hero h1 {
       margin: 0;
-      font-size: 42px;
-      line-height: 1.05;
+      font-size: 58px;
+      line-height: 1.03;
       text-transform: uppercase;
     }
 
-    h1 span,
-    h2 span {
-      color: #2f80d9;
+    .hero h1 span {
+      color: var(--blue-light);
     }
 
-    .description {
-      margin-top: 18px;
-      font-size: 18px;
-      line-height: 1.6;
-      font-weight: 500;
+    .hero p {
+      max-width: 620px;
+      margin: 24px 0 32px;
+      font-size: 21px;
+      line-height: 1.55;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
     }
 
     .btn {
       display: inline-block;
-      margin-top: 22px;
-      padding: 12px 22px;
-      background: #1565c0;
-      color: white;
-      border-radius: 6px;
+      padding: 14px 22px;
+      border-radius: 9px;
       text-decoration: none;
-      font-weight: bold;
+      font-weight: 800;
       font-size: 14px;
     }
 
-    .btn:hover {
-      background: #0d47a1;
+    .btn.primary {
+      background: var(--blue);
+      color: white;
     }
 
-    /* IMMAGINI DI SFONDO */
-    .stoccaggio {
-      background-image: url("images/Mag2.png");
+    .btn.secondary {
+      color: white;
+      border: 1px solid rgba(255,255,255,.75);
+      background: rgba(255,255,255,.10);
     }
 
-    .attrezzature {
-      background-image: url("images/GElati.png");
+    .services {
+      max-width: 1180px;
+      margin: -70px auto 65px;
+      padding: 0 24px;
+      position: relative;
+      z-index: 5;
     }
 
-    .medicale {
-      background-image: url("images/HomePage.png");
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
     }
 
-    /* RESPONSIVE */
+    .service-card {
+      min-height: 350px;
+      border-radius: 22px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 18px 40px rgba(13,52,92,.16);
+      position: relative;
+      text-decoration: none;
+      color: var(--dark);
+    }
+
+    .service-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(255,255,255,.94) 0%,
+        rgba(255,255,255,.76) 42%,
+        rgba(255,255,255,.16) 100%
+      );
+      z-index: 1;
+    }
+
+    .service-content {
+      position: relative;
+      z-index: 2;
+      padding: 28px;
+    }
+
+    .icon {
+      width: 48px;
+      height: 48px;
+      background: var(--blue);
+      color: white;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 18px;
+    }
+
+    .service-content h2 {
+      margin: 0 0 12px;
+      font-size: 25px;
+      line-height: 1.15;
+      text-transform: uppercase;
+    }
+
+    .service-content h2 span {
+      color: var(--blue);
+    }
+
+    .service-content p {
+      margin: 0 0 18px;
+      color: #24384f;
+      line-height: 1.55;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .link {
+      color: var(--blue);
+      font-weight: 900;
+      font-size: 14px;
+    }
+
+    .trust {
+      background: white;
+      padding: 45px 30px;
+    }
+
+    .trust-grid {
+      max-width: 1180px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .trust-box {
+      padding: 22px;
+      border-radius: 16px;
+      background: #f7faff;
+      border: 1px solid #e1eaf5;
+    }
+
+    .trust-box strong {
+      display: block;
+      color: var(--dark);
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .trust-box p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 38px 48px 18px;
+    }
+
+    .footer-container {
+      max-width: 1180px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    footer h3 {
+      margin: 0 0 12px;
+      color: var(--blue-light);
+    }
+
+    footer p {
+      margin: 5px 0;
+      color: #d5e2f0;
+      font-size: 14px;
+    }
+
+    .footer-bottom {
+      max-width: 1180px;
+      margin: 28px auto 0;
+      padding-top: 15px;
+      border-top: 1px solid rgba(255,255,255,.12);
+      color: #9fb2c8;
+      font-size: 13px;
+      text-align: right;
+    }
+
+    /* MOBILE */
     @media (max-width: 768px) {
       .navbar {
-        height: auto;
-        padding: 12px;
-        flex-wrap: wrap;
+        padding: 14px 18px;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .brand {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .logo {
+        font-size: 22px;
       }
 
       .subtitle {
@@ -158,181 +337,225 @@
 
       .nav {
         width: 100%;
-        margin-top: 10px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
       }
 
       .nav a {
-        margin-left: 0;
-        margin-right: 15px;
+        background: #eef5ff;
+        padding: 11px;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 13px;
       }
 
-      .frame {
-        min-height: 280px;
-        padding: 28px 20px;
+      .nav .cta {
+        background: var(--blue);
+        color: white;
+      }
+
+      .hero {
+        min-height: 520px;
+        padding: 42px 22px;
+        background-image:
+          linear-gradient(180deg, rgba(7,29,58,.94) 0%, rgba(7,29,58,.78) 52%, rgba(7,29,58,.35) 100%),
+          url("images/Mag2.png");
         background-position: center;
       }
 
-      .frame::before {
-        background: rgba(255,255,255,0.82);
+      .eyebrow {
+        font-size: 13px;
       }
 
-      h1, h2 {
-        font-size: 31px;
+      .hero h1 {
+        font-size: 36px;
+        line-height: 1.08;
       }
 
-      .description {
+      .hero p {
         font-size: 16px;
       }
+
+      .buttons {
+        flex-direction: column;
+      }
+
+      .btn {
+        text-align: center;
+        width: 100%;
+      }
+
+      .services {
+        margin: -45px auto 45px;
+        padding: 0 16px;
+      }
+
+      .service-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .service-card {
+        min-height: 310px;
+        border-radius: 18px;
+      }
+
+      .service-content {
+        padding: 24px;
+      }
+
+      .service-content h2 {
+        font-size: 23px;
+      }
+
+      .trust {
+        padding: 34px 16px;
+      }
+
+      .trust-grid {
+        grid-template-columns: 1fr;
+      }
+
+      footer {
+        padding: 34px 22px 18px;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .footer-bottom {
+        text-align: left;
+      }
     }
-
-    .footer{
-  background:#8fa6b3;
-  padding:40px 20px 10px;
-  color:#0b1f2a;
-}
-
-.footer-container{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  gap:40px;
-  max-width:1200px;
-  margin:auto;
-}
-
-.footer-box{
-  display:flex;
-  align-items:flex-start;
-  gap:15px;
-  flex:1;
-}
-
-.footer-box h3{
-  margin:0 0 10px;
-}
-
-.footer-box p{
-  margin:3px 0;
-  font-size:14px;
-}
-
-/* icone */
-.icon{
-  background:linear-gradient(145deg,#1e3c5a,#0d2a45);
-  color:white;
-  padding:12px;
-  border-radius:8px;
-  font-size:20px;
-}
-
-.icon.big{
-  font-size:28px;
-  padding:18px;
-}
-
-.center-icon{
-  justify-content:center;
-  align-items:center;
-}
-
-/* copyright */
-.footer-bottom{
-  text-align:right;
-  margin-top:30px;
-  font-size:13px;
-}
   </style>
 </head>
 
 <body>
 
-  <header class="navbar">
+<header class="navbar">
+  <div class="brand">
     <div class="logo">
       NICOLETTI
       <span>SERVICE</span>
     </div>
-
     <div class="subtitle">di Nicola e Francesco Nicoletti</div>
+  </div>
 
-    <nav class="nav">
-      <a href="index.html">Home page</a>
-      <a href="#">Altro</a>
-    </nav>
-  </header>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="stoccaggio.html">Stoccaggio</a>
+    <a href="attrezzature.html">Servizi</a>
+    <a href="medicale.html">Medicale</a>
+    <a class="cta" href="#contatti">Contatti</a>
+  </nav>
+</header>
 
-  <!-- FRAME 1 -->
-  <section class="frame stoccaggio">
-    <div class="content">
-      <div class="small-title">SOLUZIONI DI STOCCAGGIO per</div>
-      <h1>GESTIONE EFFICIENTE</h1>
-      <div class="description">
-        E sicura delle attrezzature
-      </div>
-      <a class="btn" href="stoccaggio.html">Scopri di più</a>
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">Ottimizzazione strutturale e funzionale degli spazi</div>
+
+    <h1>
+      Stoccaggio professionale
+    </h1>
+
+    <p>
+      Immagazzinamento, catalogazione e conservazione temporanea in ambienti organizzati, sicuri e controllati.
+    </p>
+
+    <div class="buttons">
+      <a class="btn primary" href="stoccaggio.html">Scopri lo stoccaggio</a>
+      <a class="btn secondary" href="attrezzature.html">Altri servizi</a>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- FRAME 2 -->
-  <section class="frame attrezzature">
-    <div class="content">
-      <div class="small-title">SERVIZIO per le</div>
-      <h2><span>ATTREZZATURE</span> REFRIGERANTI</h2>
-      <div class="description">
-        Dalla gestione al ricondizionamento,<br>
-        fino alla pulizia professionale.
+<main class="services">
+  <div class="service-grid">
+
+    <a class="service-card" href="stoccaggio.html">
+      <img src="images/Mag2.png">
+      <div class="service-content">
+        <div class="icon">📦</div>
+        <h2>Gestione <span>stoccaggio</span></h2>
+        <p>Deposito, catalogazione e conservazione temporanea delle attrezzature.</p>
+        <div class="link">Scopri di più →</div>
       </div>
-      <a class="btn" href="attrezzature.html">Vai ai servizi</a>
-    </div>
-  </section>
+    </a>
 
-  <!-- FRAME 3 -->
-  <section class="frame medicale">
-    <div class="content">
-      <div class="small-title">SPECIALISTI NELLA</div>
-      <h2>REFRIGERAZIONE <span>MEDICALE</span></h2>
-      <div class="description">
-        E nella conservazione dei farmaci.
+    <a class="service-card" href="attrezzature.html">
+      <img src="images/GElati.png">
+      <div class="service-content">
+        <div class="icon">🛠️</div>
+        <h2>Attrezzature <span>refrigeranti</span></h2>
+        <p>Ritiro, ricondizionamento, lavaggio e pulizia professionale.</p>
+        <div class="link">Vai ai servizi →</div>
       </div>
-      <a class="btn" href="medicale.html">Scopri il settore</a>
-    </div>
-  </section>
+    </a>
 
-  <footer class="footer">
+    <a class="service-card" href="medicale.html">
+      <img src="images/HomePage.png">
+      <div class="service-content">
+        <div class="icon">❄️</div>
+        <h2>Refrigerazione <span>medicale</span></h2>
+        <p>Conservazione sicura di farmaci e prodotti sensibili alla temperatura.</p>
+        <div class="link">Scopri il settore →</div>
+      </div>
+    </a>
+
+  </div>
+</main>
+
+<section class="trust">
+  <div class="trust-grid">
+    <div class="trust-box">
+      <strong>Sicurezza</strong>
+      <p>Ambienti organizzati per una gestione ordinata delle attrezzature.</p>
+    </div>
+
+    <div class="trust-box">
+      <strong>Catalogazione</strong>
+      <p>Identificazione e tracciabilità per ogni attrezzatura gestita.</p>
+    </div>
+
+    <div class="trust-box">
+      <strong>Logistica</strong>
+      <p>Supporto operativo per ritiro, movimentazione e distribuzione.</p>
+    </div>
+
+    <div class="trust-box">
+      <strong>Affidabilità</strong>
+      <p>Un unico partner per gestione, cura e conservazione temporanea.</p>
+    </div>
+  </div>
+</section>
+
+<footer id="contatti">
   <div class="footer-container">
 
-    <!-- COLONNA 1 -->
-    <div class="footer-box">
-      <div class="icon">👥</div>
-      <div class="box-content">
-        <h3>Nicoletti Service s.n.c</h3>
-        <p>Partita IVA: 06585840728</p>
-        <p>Codice Fiscale: 06585840728</p>
-        <p>Vat Europeo: IT06585840728</p>
-      </div>
+    <div>
+      <h3>Nicoletti Service s.n.c</h3>
+      <p>Partita IVA: 06585840728</p>
+      <p>Codice Fiscale: 06585840728</p>
+      <p>VAT Europeo: IT06585840728</p>
     </div>
 
-    <!-- COLONNA 2 (ICONA CENTRALE) -->
-    <div class="footer-box center-icon">
-      <div class="icon big">📍</div>
-    </div>
-
-    <!-- COLONNA 3 -->
-    <div class="footer-box">
+    <div>
       <h3>Contatti</h3>
-      <p>📍 Via dei Marmisti 5</p>
+      <p>Via dei Marmisti 5</p>
       <p>Zona Industriale SS96, Modugno (BA)</p>
-      <p>📧 info@nicolettiservice.it</p>
-      <p>📞 +39 XXX XXX XXXX (Nicola)</p>
-      <p>📞 +39 XXX XXX XXXX (Francesco)</p>
+      <p>Email: info@nicolettiservice.it</p>
+      <p>Tel: +39 3930099140</p>
+      <p>Tel: +39 3929888328</p>
     </div>
 
   </div>
 
-  <!-- COPYRIGHT -->
   <div class="footer-bottom">
-    © 2026 Nicoletti Service snc – Tutti i diritti riservati
+    © 2026 Nicoletti Service s.n.c – Tutti i diritti riservati
   </div>
 </footer>
-  
+
 </body>
 </html>
