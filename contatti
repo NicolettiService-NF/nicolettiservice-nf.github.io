@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    :root {
+      --blue:#0b63ce;
+      --blue-light:#4aa3ff;
+      --dark:#071d3a;
+      --text:#102033;
+      --muted:#64748b;
+      --bg:#f4f7fb;
+      --white:#ffffff;
+    }
+
+    * { box-sizing:border-box; }
+
+    body {
+      margin:0;
+      font-family:Arial, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+    }
+
+    .navbar {
+      background:white;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:14px 42px;
+      box-shadow:0 6px 20px rgba(0,0,0,.08);
+      position:sticky;
+      top:0;
+      z-index:50;
+    }
+
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:16px;
+    }
+
+    .logo {
+      color:var(--blue);
+      font-size:24px;
+      font-weight:900;
+      line-height:.9;
+    }
+
+    .logo span {
+      display:block;
+      font-size:11px;
+      letter-spacing:3px;
+    }
+
+    .subtitle {
+      border-left:1px solid #dbe4ef;
+      padding-left:16px;
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .nav {
+      display:flex;
+      align-items:center;
+      gap:24px;
+    }
+
+    .nav a {
+      text-decoration:none;
+      color:var(--dark);
+      font-weight:700;
+      font-size:14px;
+    }
+
+    .nav .cta {
+      background:var(--blue);
+      color:white;
+      padding:11px 17px;
+      border-radius:8px;
+    }
+
+    .hero {
+      min-height:360px;
+      display:flex;
+      align-items:center;
+      padding:70px 56px;
+      color:white;
+      background-image:
+        linear-gradient(90deg, rgba(7,29,58,.92), rgba(7,29,58,.55)),
+        url("images/Sede.png");
+      background-size:cover;
+      background-position:center;
+    }
+
+    .hero-content {
+      max-width:760px;
+    }
+
+    .eyebrow {
+      color:var(--blue-light);
+      font-size:16px;
+      font-weight:900;
+      text-transform:uppercase;
+      letter-spacing:.8px;
+      margin-bottom:16px;
+    }
+
+    .hero h1 {
+      margin:0;
+      font-size:52px;
+      line-height:1.05;
+      text-transform:uppercase;
+    }
+
+    .hero h1 span {
+      color:var(--blue-light);
+    }
+
+    .hero p {
+      max-width:650px;
+      margin:22px 0 0;
+      font-size:20px;
+      line-height:1.55;
+    }
+
+    .section {
+      max-width:1180px;
+      margin:60px auto;
+      padding:0 24px;
+    }
+
+    .contact-grid {
+      display:grid;
+      grid-template-columns:1fr 1.2fr;
+      gap:34px;
+      align-items:start;
+    }
+
+    .info-card,
+    .form-card {
+      background:white;
+      border-radius:22px;
+      padding:34px;
+      box-shadow:0 14px 32px rgba(13,52,92,.11);
+      border:1px solid #e7eef8;
+    }
+
+    .info-card h2,
+    .form-card h2 {
+      margin:0 0 18px;
+      font-size:30px;
+      color:var(--dark);
+    }
+
+    .info-card p {
+      color:var(--muted);
+      line-height:1.6;
+      font-size:15px;
+    }
+
+    .info-row {
+      display:flex;
+      gap:14px;
+      margin-top:22px;
+      align-items:flex-start;
+    }
+
+    .info-icon {
+      width:44px;
+      height:44px;
+      border-radius:12px;
+      background:#eef5ff;
+      color:var(--blue);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:20px;
+      flex-shrink:0;
+    }
+
+    .info-row strong {
+      display:block;
+      margin-bottom:4px;
+      color:var(--dark);
+    }
+
+    .info-row span {
+      color:var(--muted);
+      font-size:14px;
+      line-height:1.5;
+    }
+
+    .form-group {
+      margin-bottom:18px;
+    }
+
+    label {
+      display:block;
+      font-weight:800;
+      color:var(--dark);
+      margin-bottom:7px;
+      font-size:14px;
+    }
+
+    input,
+    textarea,
+    select {
+      width:100%;
+      padding:13px 14px;
+      border:1px solid #d7e2ef;
+      border-radius:10px;
+      font-size:15px;
+      outline:none;
+      font-family:Arial, sans-serif;
+      background:#f9fbfe;
+    }
+
+    textarea {
+      min-height:130px;
+      resize:vertical;
+    }
+
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color:var(--blue);
+      background:white;
+      box-shadow:0 0 0 3px rgba(11,99,206,.12);
+    }
+
+    .btn {
+      width:100%;
+      padding:15px 22px;
+      border:none;
+      border-radius:10px;
+      background:var(--blue);
+      color:white;
+      font-weight:900;
+      font-size:15px;
+      cursor:pointer;
+    }
+
+    .btn:hover {
+      background:#084fa8;
+    }
+
+    .note {
+      margin-top:14px;
+      font-size:13px;
+      color:var(--muted);
+      line-height:1.5;
+    }
+
+    footer {
+      background:#06162c;
+      color:white;
+      padding:38px 48px 18px;
+    }
+
+    .footer-container {
+      max-width:1180px;
+      margin:auto;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+    }
+
+    footer h3 {
+      margin:0 0 12px;
+      color:var(--blue-light);
+    }
+
+    footer p {
+      margin:5px 0;
+      color:#d5e2f0;
+      font-size:14px;
+    }
+
+    .footer-bottom {
+      max-width:1180px;
+      margin:28px auto 0;
+      padding-top:15px;
+      border-top:1px solid rgba(255,255,255,.12);
+      color:#9fb2c8;
+      font-size:13px;
+      text-align:right;
+    }
+
+    @media(max-width:768px) {
+      .navbar {
+        padding:14px 18px;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:12px;
+      }
+
+      .subtitle {
+        display:none;
+      }
+
+      .nav {
+        width:100%;
+        display:grid;
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
+      }
+
+      .nav a {
+        background:#eef5ff;
+        padding:11px;
+        border-radius:8px;
+        text-align:center;
+        font-size:13px;
+      }
+
+      .nav .cta {
+        background:var(--blue);
+        color:white;
+      }
+
+      .hero {
+        padding:45px 22px;
+        min-height:320px;
+      }
+
+      .hero h1 {
+        font-size:34px;
+      }
+
+      .hero p {
+        font-size:16px;
+      }
+
+      .contact-grid,
+      .footer-container {
+        grid-template-columns:1fr;
+      }
+
+      .info-card,
+      .form-card {
+        padding:24px;
+      }
+
+      footer {
+        padding:34px 22px 18px;
+      }
+
+      .footer-bottom {
+        text-align:left;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="navbar">
+  <div class="brand">
+    <div class="logo">
+      NICOLETTI
+      <span>SERVICE</span>
+    </div>
+    <div class="subtitle">di Nicola e Francesco Nicoletti</div>
+  </div>
+
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="stoccaggio.html">Stoccaggio</a>
+    <a href="attrezzature.html">Servizi</a>
+    <a href="medicale.html">Medicale</a>
+    <a class="cta" href="contatti.html">Contatti</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <div class="eyebrow">Richiedi informazioni</div>
+    <h1>Parla con <span>Nicoletti Service</span></h1>
+    <p>
+      Compila il modulo per ricevere informazioni su stoccaggio, attrezzature refrigeranti, refrigerazione medicale o assistenza tecnica.
+    </p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="contact-grid">
+
+    <div class="info-card">
+      <h2>Contatti diretti</h2>
+      <p>
+        Siamo a disposizione per valutare richieste di servizio, ritiri, stoccaggio temporaneo, assistenza e informazioni commerciali.
+      </p>
+
+      <div class="info-row">
+        <div class="info-icon">📍</div>
+        <div>
+          <strong>Sede</strong>
+          <span>Via dei Marmisti 5<br>Zona Industriale SS96, Modugno (BA)</span>
+        </div>
+      </div>
+
+      <div class="info-row">
+        <div class="info-icon">📧</div>
+        <div>
+          <strong>Email</strong>
+          <span>info@nicolettiservice.it</span>
+        </div>
+      </div>
+
+      <div class="info-row">
+        <div class="info-icon">📞</div>
+        <div>
+          <strong>Telefono</strong>
+          <span>+39 3930099140<br>+39 3929888328</span>
+ 
+        </div>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <h2>Modulo richiesta</h2>
+<!--- FORMSPREE per inviare mail-->
+      <form action="https://formspree.io/f/mojrvvgz" method="POST">
+
+        <div class="form-group">
+          <label>Nome e Cognome</label>
+          <input type="text" name="Nome" placeholder="Inserisci il tuo nome" required>
+        </div>
+
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="Email" placeholder="Inserisci la tua email" required>
+        </div>
+
+        <div class="form-group">
+          <label>Telefono</label>
+          <input type="tel" name="Telefono" placeholder="Inserisci il tuo numero">
+        </div>
+
+        <div class="form-group">
+          <label>Tipo richiesta</label>
+          <select name="Richiesta">
+            <option value="Stoccaggio">Stoccaggio</option>
+            <option value="Attrezzature refrigeranti">Attrezzature refrigeranti</option>
+            <option value="Refrigerazione medicale">Refrigerazione medicale</option>
+            <option value="Assistenza tecnica">Assistenza tecnica</option>
+            <option value="Altro">Altro</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Messaggio</label>
+          <textarea name="Messaggio" placeholder="Descrivi la tua richiesta..." required></textarea>
+        </div>
+
+        <button class="btn" type="submit">Invia richiesta</button>
+
+        <div class="note">
+       
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</section>
+
+<footer id="contatti">
+  <div class="footer-container">
+
+    <div>
+      <h3>Nicoletti Service s.n.c</h3>
+      <p>Partita IVA: 06585840728</p>
+      <p>Codice Fiscale: 06585840728</p>
+      <p>VAT Europeo: IT06585840728</p>
+    </div>
+
+    <div>
+      <h3>Contatti</h3>
+      <p>Via dei Marmisti 5</p>
+      <p>Zona Industriale SS96, Modugno (BA)</p>
+      <p>Email: info@nicolettiservice.it</p>
+      <p>Tel: +39 XXX XXX XXXX</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 Nicoletti Service s.n.c – Tutti i diritti riservati
+  </div>
+</footer>
+
+</body>
+</html>
