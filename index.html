@@ -6,360 +6,427 @@
 
   <style>
     :root {
-      --blue:#0b63ce;
-      --blue-light:#4aa3ff;
-      --dark:#071d3a;
-      --text:#102033;
-      --muted:#64748b;
-      --bg:#f4f7fb;
-      --white:#ffffff;
+      --blue: #0b63ce;
+      --blue-light: #4aa3ff;
+      --dark: #071d3a;
+      --text: #102033;
+      --muted: #64748b;
+      --bg: #f4f7fb;
+      --white: #ffffff;
     }
 
-    * { box-sizing:border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
-      margin:0;
-      font-family:Arial, sans-serif;
-      background:var(--bg);
-      color:var(--text);
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
     }
 
     .navbar {
-      background:rgba(255,255,255,.96);
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      padding:14px 42px;
-      box-shadow:0 6px 20px rgba(0,0,0,.08);
-      position:sticky;
-      top:0;
-      z-index:50;
+      background: rgba(255,255,255,0.96);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 42px;
+      box-shadow: 0 6px 20px rgba(0,0,0,.08);
+      position: sticky;
+      top: 0;
+      z-index: 50;
     }
 
     .brand {
-      display:flex;
-      align-items:center;
-      gap:16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
     }
 
     .logo {
-      color:var(--blue);
-      font-size:24px;
-      font-weight:900;
-      line-height:.9;
+      color: var(--blue);
+      font-size: 24px;
+      font-weight: 900;
+      line-height: .9;
     }
 
     .logo span {
-      display:block;
-      font-size:11px;
-      letter-spacing:3px;
+      display: block;
+      font-size: 11px;
+      letter-spacing: 3px;
     }
 
     .subtitle {
-      border-left:1px solid #dbe4ef;
-      padding-left:16px;
-      color:var(--muted);
-      font-size:14px;
+      border-left: 1px solid #dbe4ef;
+      padding-left: 16px;
+      color: var(--muted);
+      font-size: 14px;
     }
 
     .nav {
-      display:flex;
-      align-items:center;
-      gap:24px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
     }
 
     .nav a {
-      text-decoration:none;
-      color:var(--dark);
-      font-weight:700;
-      font-size:14px;
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 700;
+      font-size: 14px;
     }
 
     .nav .cta {
-      background:var(--blue);
-      color:white;
-      padding:11px 17px;
-      border-radius:8px;
+      background: var(--blue);
+      color: white;
+      padding: 11px 17px;
+      border-radius: 8px;
     }
 
     .hero {
-      min-height:520px;
-      display:flex;
-      align-items:center;
-      padding:70px 56px;
-      color:white;
+      min-height: 560px;
+      display: flex;
+      align-items: center;
+      padding: 70px 56px;
+      color: white;
       background-image:
         linear-gradient(90deg, rgba(7,29,58,.92) 0%, rgba(7,29,58,.78) 40%, rgba(7,29,58,.20) 75%),
-        url("images/HomePage.png");
-      background-size:cover;
-      background-position:center right;
+        url("images/Mag2.png");
+      background-size: cover;
+      background-position: center right;
     }
 
     .hero-content {
-      max-width:760px;
+      max-width: 720px;
     }
 
     .eyebrow {
-      color:var(--blue-light);
-      font-size:16px;
-      font-weight:900;
-      text-transform:uppercase;
-      letter-spacing:.8px;
-      margin-bottom:16px;
+      color: var(--blue-light);
+      font-size: 16px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      margin-bottom: 16px;
     }
 
     .hero h1 {
-      margin:0;
-      font-size:56px;
-      line-height:1.04;
-      text-transform:uppercase;
+      margin: 0;
+      font-size: 58px;
+      line-height: 1.03;
+      text-transform: uppercase;
     }
 
     .hero h1 span {
-      color:var(--blue-light);
+      color: var(--blue-light);
     }
 
     .hero p {
-      max-width:650px;
-      margin:24px 0 32px;
-      font-size:21px;
-      line-height:1.55;
+      max-width: 620px;
+      margin: 24px 0 32px;
+      font-size: 21px;
+      line-height: 1.55;
     }
 
     .buttons {
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
     }
 
     .btn {
-      display:inline-block;
-      padding:14px 22px;
-      border-radius:9px;
-      text-decoration:none;
-      font-weight:800;
-      font-size:14px;
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 9px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 14px;
     }
 
     .btn.primary {
-      background:var(--blue);
-      color:white;
+      background: var(--blue);
+      color: white;
     }
 
     .btn.secondary {
-      color:white;
-      border:1px solid rgba(255,255,255,.75);
-      background:rgba(255,255,255,.10);
+      color: white;
+      border: 1px solid rgba(255,255,255,.75);
+      background: rgba(255,255,255,.10);
     }
 
-    .section {
-      max-width:1180px;
-      margin:70px auto;
-      padding:0 24px;
+    .services {
+      max-width: 1180px;
+      margin: -70px auto 65px;
+      padding: 0 24px;
+      position: relative;
+      z-index: 5;
     }
 
-    .section-title {
-      text-align:center;
-      margin-bottom:38px;
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
     }
 
-    .section-title .small {
-      color:var(--blue);
-      font-weight:900;
-      text-transform:uppercase;
-      margin-bottom:8px;
+    .service-card {
+      min-height: 350px;
+      border-radius: 22px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 18px 40px rgba(13,52,92,.16);
+      position: relative;
+      text-decoration: none;
+      color: var(--dark);
     }
 
-    .section-title h2 {
-      margin:0;
-      font-size:36px;
-      color:var(--dark);
+    .service-card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
-    .cards {
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:22px;
+    .service-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(255,255,255,.94) 0%,
+        rgba(255,255,255,.76) 42%,
+        rgba(255,255,255,.16) 100%
+      );
+      z-index: 1;
     }
 
-    .card {
-      background:white;
-      border-radius:20px;
-      overflow:hidden;
-      box-shadow:0 16px 36px rgba(13,52,92,.12);
+    .service-content {
+      position: relative;
+      z-index: 2;
+      padding: 28px;
     }
 
-    .card img {
-      width:100%;
-      height:160px;
-      object-fit:cover;
-      display:block;
+    .icon {
+      width: 48px;
+      height: 48px;
+      background: var(--blue);
+      color: white;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 18px;
     }
 
-    .card-content {
-      padding:22px;
+    .service-content h2 {
+      margin: 0 0 12px;
+      font-size: 25px;
+      line-height: 1.15;
+      text-transform: uppercase;
     }
 
-    .card-content h3 {
-      margin:0 0 10px;
-      color:var(--dark);
-      text-transform:uppercase;
-      font-size:18px;
+    .service-content h2 span {
+      color: var(--blue);
     }
 
-    .card-content p {
-      margin:0;
-      color:var(--muted);
-      line-height:1.55;
-      font-size:14px;
+    .service-content p {
+      margin: 0 0 18px;
+      color: #24384f;
+      line-height: 1.55;
+      font-size: 15px;
+      font-weight: 600;
     }
 
-    .info-band {
-      background:var(--dark);
-      color:white;
-      padding:45px 24px;
+    .link {
+      color: var(--blue);
+      font-weight: 900;
+      font-size: 14px;
     }
 
-    .info-grid {
-      max-width:1180px;
-      margin:auto;
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:24px;
+    .trust {
+      background: white;
+      padding: 45px 30px;
     }
 
-    .info-box {
-      border-left:1px solid rgba(255,255,255,.18);
-      padding-left:20px;
+    .trust-grid {
+      max-width: 1180px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
     }
 
-    .info-box strong {
-      display:block;
-      color:var(--blue-light);
-      font-size:18px;
-      margin-bottom:8px;
+    .trust-box {
+      padding: 22px;
+      border-radius: 16px;
+      background: #f7faff;
+      border: 1px solid #e1eaf5;
     }
 
-    .info-box p {
-      margin:0;
-      color:#d5e2f0;
-      font-size:14px;
-      line-height:1.5;
+    .trust-box strong {
+      display: block;
+      color: var(--dark);
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .trust-box p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
     }
 
     footer {
-      background:#06162c;
-      color:white;
-      padding:38px 48px 18px;
+      background: var(--dark);
+      color: white;
+      padding: 38px 48px 18px;
     }
 
     .footer-container {
-      max-width:1180px;
-      margin:auto;
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:40px;
+      max-width: 1180px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
     }
 
     footer h3 {
-      margin:0 0 12px;
-      color:var(--blue-light);
+      margin: 0 0 12px;
+      color: var(--blue-light);
     }
 
     footer p {
-      margin:5px 0;
-      color:#d5e2f0;
-      font-size:14px;
+      margin: 5px 0;
+      color: #d5e2f0;
+      font-size: 14px;
     }
 
     .footer-bottom {
-      max-width:1180px;
-      margin:28px auto 0;
-      padding-top:15px;
-      border-top:1px solid rgba(255,255,255,.12);
-      color:#9fb2c8;
-      font-size:13px;
-      text-align:right;
+      max-width: 1180px;
+      margin: 28px auto 0;
+      padding-top: 15px;
+      border-top: 1px solid rgba(255,255,255,.12);
+      color: #9fb2c8;
+      font-size: 13px;
+      text-align: right;
     }
 
-    @media(max-width:768px) {
+    /* MOBILE */
+    @media (max-width: 768px) {
       .navbar {
-        padding:14px 18px;
-        align-items:flex-start;
-        flex-direction:column;
-        gap:12px;
+        padding: 14px 18px;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .brand {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .logo {
+        font-size: 22px;
       }
 
       .subtitle {
-        display:none;
+        display: none;
       }
 
       .nav {
-        width:100%;
-        display:grid;
-        grid-template-columns:repeat(2,1fr);
-        gap:10px;
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
       }
 
       .nav a {
-        background:#eef5ff;
-        padding:11px;
-        border-radius:8px;
-        text-align:center;
-        font-size:13px;
+        background: #eef5ff;
+        padding: 11px;
+        border-radius: 8px;
+        text-align: center;
+        font-size: 13px;
       }
 
       .nav .cta {
-        background:var(--blue);
-        color:white;
+        background: var(--blue);
+        color: white;
       }
 
       .hero {
-        min-height:520px;
-        padding:42px 22px;
+        min-height: 520px;
+        padding: 42px 22px;
         background-image:
-          linear-gradient(180deg, rgba(7,29,58,.94) 0%, rgba(7,29,58,.78) 55%, rgba(7,29,58,.35) 100%),
-          url("images/HomePage.png");
-        background-position:center;
+          linear-gradient(180deg, rgba(7,29,58,.94) 0%, rgba(7,29,58,.78) 52%, rgba(7,29,58,.35) 100%),
+          url("images/Mag2.png");
+        background-position: center;
+      }
+
+      .eyebrow {
+        font-size: 13px;
       }
 
       .hero h1 {
-        font-size:36px;
+        font-size: 36px;
+        line-height: 1.08;
       }
 
       .hero p {
-        font-size:16px;
+        font-size: 16px;
       }
 
       .buttons {
-        flex-direction:column;
+        flex-direction: column;
       }
 
       .btn {
-        width:100%;
-        text-align:center;
+        text-align: center;
+        width: 100%;
       }
 
-      .cards,
-      .info-grid,
-      .footer-container {
-        grid-template-columns:1fr;
+      .services {
+        margin: -45px auto 45px;
+        padding: 0 16px;
       }
 
-      .section {
-        margin:45px auto;
+      .service-grid {
+        grid-template-columns: 1fr;
       }
 
-      .section-title h2 {
-        font-size:28px;
+      .service-card {
+        min-height: 310px;
+        border-radius: 18px;
+      }
+
+      .service-content {
+        padding: 24px;
+      }
+
+      .service-content h2 {
+        font-size: 23px;
+      }
+
+      .trust {
+        padding: 34px 16px;
+      }
+
+      .trust-grid {
+        grid-template-columns: 1fr;
       }
 
       footer {
-        padding:34px 22px 18px;
+        padding: 34px 22px 18px;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 24px;
       }
 
       .footer-bottom {
-        text-align:left;
+        text-align: left;
       }
     }
   </style>
@@ -378,8 +445,8 @@
 
   <nav class="nav">
     <a href="index4.html">Home</a>
-  <!--  <a href="stoccaggio.html">Stoccaggio</a>
- <a href="attrezzature.html">Servizi</a>-->
+   <!--<a href="stoccaggio.html">Stoccaggio</a>
+    <a href="attrezzature.html">Servizi</a>-->
     <a href="assistenza.html">Collaborazione</a>
     <a class="cta" href="#contatti">Contatti</a>
   </nav>
@@ -387,84 +454,78 @@
 
 <section class="hero">
   <div class="hero-content">
-    <div class="eyebrow">Specialisti nella refrigerazione medicale</div>
+    <div class="eyebrow">Ottimizzazione strutturale e funzionale degli spazi</div>
 
     <h1>
-      Conservazione sicura <span>di farmaci e prodotti sensibili</span>
-    </h1>
+      Stoccaggio professionale    </h1>
 
     <p>
-      Soluzioni dedicate a farmacie, laboratori, strutture sanitarie e aziende che necessitano di controllo, affidabilità e continuità nella catena del freddo.
+      Immagazzinamento, catalogazione e conservazione temporanea in ambienti organizzati, sicuri e controllati.
     </p>
 
     <div class="buttons">
-     <!-- <a class="btn primary" href="#servizi">Scopri i servizi</a>-->
-      <a class="btn secondary" href="informazioni.html">Richiedi informazioni</a>
+   <!--   <a class="btn primary" href="stoccaggio.html">Scopri lo stoccaggio</a>
+      <a class="btn secondary" href="attrezzature.html">Altri servizi</a>-->
     </div>
   </div>
 </section>
 
-<section class="section" id="servizi">
-  <div class="section-title">
-    <div class="small">I nostri servizi medicali</div>
-    <h2>Supporto completo per la refrigerazione farmaceutica</h2>
+<main class="services">
+  <div class="service-grid">
+
+    <a class="service-card" href="stoccaggio.html">
+      <img src="images/Mag2.png">
+      <div class="service-content">
+        <div class="icon">📦</div>
+        <h2>Gestione <span>stoccaggio</span></h2>
+        <p>Deposito, catalogazione e conservazione temporanea delle attrezzature.</p>
+        <div class="link">Scopri di più →</div>
+      </div>
+    </a>
+
+    <a class="service-card" href="attrezzature.html">
+      <img src="images/GElati.png">
+      <div class="service-content">
+        <div class="icon">🛠️</div>
+        <h2>Attrezzature <span>refrigeranti</span></h2>
+        <p>Ritiro, ricondizionamento, lavaggio e pulizia professionale.</p>
+        <div class="link">Vai ai servizi →</div>
+      </div>
+    </a>
+
+    <a class="service-card" href="Refrigeranti.html">
+      <img src="images/HomePage.png">
+      <div class="service-content">
+        <div class="icon">❄️</div>
+        <h2>Refrigerazione <span>medicale</span></h2>
+        <p>Conservazione sicura di farmaci e prodotti sensibili alla temperatura.</p>
+        <div class="link">Scopri il settore →</div>
+      </div>
+    </a>
+
   </div>
+</main>
 
-  <div class="cards">
-    <div class="card">
-      <img src="images/installazione.png">
-      <div class="card-content">
-        <h3>Installazione</h3>
-        <p>Installazione di frigoriferi medicali, armadi refrigerati e soluzioni dedicate alla conservazione dei farmaci.</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/manutenzione.png">
-      <div class="card-content">
-        <h3>Manutenzione</h3>
-        <p>Controlli programmati e interventi tecnici per garantire continuità, efficienza e sicurezza operativa.</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/assistenza.png">
-      <div class="card-content">
-        <h3>Assistenza</h3>
-        <p>Supporto rapido su apparecchiature refrigeranti per ridurre i tempi di fermo e proteggere i prodotti conservati.</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="images/validazione.png">
-      <div class="card-content">
-        <h3>Validazione</h3>
-        <p>Supporto alla verifica delle prestazioni e al controllo della temperatura secondo le esigenze operative.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="info-band">
-  <div class="info-grid">
-    <div class="info-box">
-      <strong>Temperatura controllata</strong>
-      <p>Attenzione alla stabilità e alla corretta conservazione dei prodotti sensibili.</p>
-    </div>
-
-    <div class="info-box">
+<section class="trust">
+  <div class="trust-grid">
+    <div class="trust-box">
       <strong>Sicurezza</strong>
-      <p>Gestione accurata delle apparecchiature per tutelare farmaci e materiali delicati.</p>
+      <p>Ambienti organizzati per una gestione ordinata delle attrezzature.</p>
     </div>
 
-    <div class="info-box">
+    <div class="trust-box">
+      <strong>Catalogazione</strong>
+      <p>Identificazione e tracciabilità per ogni attrezzatura gestita.</p>
+    </div>
+
+    <div class="trust-box">
+      <strong>Logistica</strong>
+      <p>Supporto operativo per ritiro, movimentazione e distribuzione.</p>
+    </div>
+
+    <div class="trust-box">
       <strong>Affidabilità</strong>
-      <p>Servizi pensati per garantire continuità operativa e ridurre i rischi di fermo.</p>
-    </div>
-
-    <div class="info-box">
-      <strong>Esperienza tecnica</strong>
-      <p>Interventi dedicati a frigoriferi medicali, farmaceutici e attrezzature professionali.</p>
+      <p>Un unico partner per gestione, cura e conservazione temporanea.</p>
     </div>
   </div>
 </section>
@@ -483,8 +544,8 @@
       <h3>Contatti</h3>
       <p>Via dei Marmisti 9</p>
       <p>Zona Industriale SS96, Modugno (BA)</p>
-      <p>Email: nicolettiservice.nf@libero.it</p>
-       <p>Tel: +39 3930099140</p>
+      <p>Email: nicolettiservice.nf@libero.it</p></p>
+      <p>Tel: +39 3930099140</p>
       <p>Tel: +39 3929888328</p>
     </div>
 
