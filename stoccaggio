@@ -409,8 +409,8 @@
   <nav class="nav">
     <a href="index4.html">Home</a>
  <!--   <a href="stoccaggio.html">Stoccaggio</a>
-    <a href="attrezzature.html">Servizi</a>
-    <a href="medicale.html">Medicale</a>-->
+    <a href="attrezzature.html">Servizi</a>-->
+    <a href="assistenza.html">Collaborazione</a>
     <a class="cta" href="#contatti">Contatti</a>
   </nav>
 </header>
@@ -422,7 +422,7 @@
     <p>
       Offriamo servizi completi di immagazzinamento, catalogazione e conservazione temporanea delle merci e delle attrezzature.
     </p>
-    <a class="btn" href="#servizi">Scopri il servizio</a>
+      <a class="btn secondary" href="informazioni.html">Richiedi informazioni</a>
   </div>
 
   <img src="images/struttura.png" alt="Magazzino Nicoletti Service">
@@ -590,9 +590,9 @@
 
     <div>
       <h3>Contatti</h3>
-      <p>Via dei Marmisti 5</p>
+      <p>Via dei Marmisti 9</p>
       <p>Zona Industriale SS96, Modugno (BA)</p>
-      <p>Email: info@nicolettiservice.it</p>
+      <p>Email: nicolettiservice.nf@libero.it</p>t</p>
       <p>Tel: +39 3930099140</p>
       <p>Tel: +39 3929888328</p>
     </div>
