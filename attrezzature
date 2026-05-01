@@ -498,10 +498,10 @@
   </div>
 
   <nav class="nav">
-    <a href="index.html">Home</a>
+    <a href="index4.html">Home</a>
   <!--  <a href="stoccaggio.html">Stoccaggio</a>
-    <a href="attrezzature.html">Servizi</a>
-    <a href="medicale.html">Medicale</a>-->
+     <a href="attrezzature.html">Servizi</a>-->
+    <a href="assistenza.html">Collaborazione</a>
     <a class="cta" href="#contatti">Contatti</a>
   </nav>
 </header>
@@ -519,8 +519,8 @@
     </p>
 
     <div class="buttons">
-    <!--  <a class="btn primary" href="#servizi">Scopri i servizi</a>-->
-      <a class="btn secondary" href="#contatti">Richiedi informazioni</a>
+   <!--   <a class="btn primary" href="#servizi">Scopri i servizi</a>-->
+      <a class="btn secondary" href="informazioni.html">Richiedi informazioni</a>
     </div>
   </div>
 </section>
@@ -698,10 +698,10 @@
 
     <div>
       <h3>Contatti</h3>
-      <p>Via dei Marmisti 5</p>
+      <p>Via dei Marmisti 9</p>
       <p>Zona Industriale SS96, Modugno (BA)</p>
-      <p>Email: info@nicolettiservice.it</p>
-      <p>Tel: +39 3930099140</p>
+      <p>Email: nicolettiservice.nf@libero.it</p></p>
+       <p>Tel: +39 3930099140</p>
       <p>Tel: +39 3929888328</p>
     </div>
 
